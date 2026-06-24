@@ -6,7 +6,7 @@ metadata:
   name: rhcl-operator
   namespace: {{ .Values.operatorNamespace }}
   annotations:
-    argocd.argoproj.io/sync-wave: "5"
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   channel: stable
   installPlanApproval: Automatic
