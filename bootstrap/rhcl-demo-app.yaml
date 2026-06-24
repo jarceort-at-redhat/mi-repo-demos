@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: redhat-connectivity-link-demo
+  namespace: openshift-gitops
+spec:
+  project: default
+  source:
+    # REEMPLAZA con la URL real de tu repositorio Git
+    repoURL: 'https://github.com/mikeintoch/mi-repo-demos.git'
+    targetRevision: HEAD
+    path: charts/rhcl-demo
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: mi-demo
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    createNamespace: true # Argo CD creará el namespace kuadrant-system si no existe
