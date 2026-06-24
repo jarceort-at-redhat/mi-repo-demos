@@ -12,6 +12,7 @@ spec:
     path: charts/rhcl-demo
   destination:
     server: 'https://kubernetes.default.svc'
+    namespace: default
   syncPolicy:
     automated:
       prune: true
