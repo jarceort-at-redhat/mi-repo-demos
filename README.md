@@ -1,33 +1,30 @@
-# Red Hat Connectivity Link (Kuadrant) - GitOps Demo Automatizada
+# Red Hat Connectivity Link (Kuadrant) — GitOps "App of Apps" Demo
 
-Este repositorio contiene la automatización completa para desplegar una demo de **Red Hat Connectivity Link (RHCL)** (basado en el proyecto open-source **Kuadrant**) sobre **OpenShift**. 
+This repository contains the complete enterprise-grade automation to deploy a **Red Hat Connectivity Link (RHCL)** (powered by the upstream **Kuadrant** project) and **Red Hat OpenShift Service Mesh v3 (Istio)** environment on OpenShift.
 
-La arquitectura utiliza **OpenShift Service Mesh v3 (Istio)** como base de red, exponiendo una API de pruebas que corre internamente en el puerto `8080`, protegida de extremo a extremo mediante políticas de tráfico avanzadas (**Rate Limiting**), cifrado en el borde (**TLS Edge**) y redirección automática de **HTTP a HTTPS**.
+The deployment leverages the **App of Apps** pattern combined with **Argo CD Sync Waves** to dynamically orchestrate multi-namespace infrastructure, automated operators, and an isolated sample application microservice complete with **Edge TLS Termination**, **HTTP-to-HTTPS Redirection**, and advanced **Rate Limiting (L7)**.
 
 ---
 
-## 🏗️ Estructura del Repositorio
+## 🏛️ Repository Architecture
 
-El proyecto está organizado de manera modular por componentes tecnológicos y utiliza **Argo CD Sync Waves** para garantizar que los operadores e infraestructura se instalen en el orden secuencial correcto:
+The project is structured following production GitOps standards. Rather than employing a single massive Helm execution, it uses a top-level Helm orchestrator to establish decoupled, standalone Argo CD sub-applications for each domain:
 
 ```text
 mi-repo-demos/
 ├── bootstrap/
-│   └── rhcl-demo-app.yaml         # Aplicación raíz de Argo CD (Disparador)
-└── charts/
-    └── rhcl-demo/
-        ├── Chart.yaml             # Metadatos del Helm Chart
-        ├── values.yaml            # Variables globales y personalizables
-        └── templates/
-            ├── 01-service-mesh/
-            │   ├── 01-operator-subscription.yaml  # Wave 1: Operador Service Mesh 3.x
-            │   └── 02-istio-controlplane.yaml     # Wave 2: Plano de Control (Istio CR)
-            └── 02-kuadrant/
-                ├── 00-operator-subscription.yaml  # Wave 3: Operador de Kuadrant
-                ├── 01-kuadrant-core.yaml          # Wave 4: Motor Central de Kuadrant
-                ├── 02-gateway.yaml                # Wave 5: Gateway API (Puerto 80)
-                ├── 03-api-deployment.yaml         # Wave 6: Contenedor API (Puerto 8080)
-                ├── 04-api-service.yaml            # Wave 6: Servicio Mapeador (80 -> 8080)
-                ├── 05-api-httproute.yaml          # Wave 6: Enrutamiento de Gateway API
-                ├── 06-api-route.yaml              # Wave 6: OpenShift Route (TLS Edge + Redirect)
-                └── 07-api-ratelimit.yaml          # Wave 6: Política de Rate Limit (RHCL)
+│   └── root-app.yaml               # The "Mother" Application (Manually applied)
+└── apps/
+    ├── 00-root/
+    │   ├── Chart.yaml              # App of Apps Helm configurations
+    │   ├── values.yaml             # Global Git target definitions
+    │   └── templates/
+    │       ├── app-service-mesh.yaml # Multi-namespace sub-app 01
+    │       ├── app-kuadrant.yaml     # Multi-namespace sub-app 02
+    │       ├── app-api-service.yaml  # Multi-namespace sub-app 03
+    │       └── app-api-sample.yaml   # Multi-namespace sub-app 04
+    └── charts/
+        ├── service-mesh/           # Helm Chart: Istio 3.x Control Plane & Sail Operator
+        ├── kuadrant/               # Helm Chart: Kuadrant Core & Operator Subscription
+        ├── api-service/            # Helm Chart: Sample App Container, Gateway & HTTPRoute
+        └── api-sample/             # Helm Chart: Automated UI Plugin Registration
