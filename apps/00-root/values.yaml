@@ -12,3 +12,6 @@ kuadrant:
 
 apiSample:
   namespace: api-sample
+
+gateway:
+  namespace: api-gateway

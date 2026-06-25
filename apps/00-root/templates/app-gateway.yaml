@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gateway
+  namespace: {{ .Values.gitops.namespace }}
+spec:
+  project: default
+  source:
+    repoURL: {{ .Values.repoURL }}
+    targetRevision: {{ .Values.targetRevision }}
+    path: apps/charts/gateway
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: {{ .Values.gateway.namespace }}
+  syncPolicy:
+    automated: { prune: true, selfHeal: true }
+    syncOptions:
+      - CreateNamespace=true
+      - SkipDryRunOnMissingResource=true
