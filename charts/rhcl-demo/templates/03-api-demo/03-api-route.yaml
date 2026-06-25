@@ -2,7 +2,7 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: {{ .Values.apiSample.name }}-route
-  namespace: {{ .Values.namespace }}
+  namespace: {{ .Values.apiSample.namespace }}
   annotations:
     # Wave 6: Se crea en paralelo con el despliegue de la API y el Servicio
     argocd.argoproj.io/sync-wave: "3"
