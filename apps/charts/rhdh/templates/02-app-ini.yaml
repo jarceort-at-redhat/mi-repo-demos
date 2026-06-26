@@ -8,6 +8,8 @@ metadata:
     argocd.argoproj.io/sync-wave: "1"
 data:
   app-config.yaml: |
+    permission:
+      enabled: true
     auth:
       environment: development
       providers: {}
