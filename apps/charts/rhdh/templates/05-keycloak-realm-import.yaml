@@ -10,7 +10,7 @@ items:
       app.kubernetes.io/instance: {{ .Values.keycloak.name }}
       app.kubernetes.io/name: keycloak-realm-import
     name: {{ .Values.keycloak.realmName }}
-    namespace: {{.Valued.keycloak.namespace }}
+    namespace: {{ .Values.keycloak.namespace }}
   spec:
     keycloakCRName: keycloak
     realm:
