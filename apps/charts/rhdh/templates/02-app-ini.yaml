@@ -21,6 +21,8 @@ data:
         origin: https://rhdh.{{ .Values.clusterDomain }}
 
     auth:
+      session:
+        secret: ${BACKEND_SECRET}
       environment: production
       providers:
         oidc:
