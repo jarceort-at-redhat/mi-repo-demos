@@ -305,24 +305,24 @@ data:
       #  disabled: false
 
       # Scorecards plugin (frontend + backend)
-      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-scorecard:bs_1.42.5__1.0.0!red-hat-developer-hub-backstage-plugin-scorecard
-        disabled: false
-        pluginConfig:
-          dynamicPlugins:
-            frontend:
-              red-hat-developer-hub.backstage-plugin-scorecard:
-                mountPoints:
-                  - mountPoint: entity.page.overview/cards
-                    importName: EntityScorecardContent
-                    config:
-                      layout:
-                        gridColumnEnd: span 4
-                      if:
-                        allOf:
-                          - isKind: component
-                          - hasAnnotation: jira/project-key
-      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-scorecard-backend:bs_1.42.5__1.0.0!red-hat-developer-hub-backstage-plugin-scorecard-backend
-        disabled: false
+      #- package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-scorecard:bs_1.42.5__1.0.0!red-hat-developer-hub-backstage-plugin-scorecard
+      #  disabled: false
+      #  pluginConfig:
+      #    dynamicPlugins:
+      #      frontend:
+      #        red-hat-developer-hub.backstage-plugin-scorecard:
+      #          mountPoints:
+      #            - mountPoint: entity.page.overview/cards
+      #              importName: EntityScorecardContent
+      #              config:
+      #                layout:
+      #                  gridColumnEnd: span 4
+      #                if:
+      #                  allOf:
+      #                    - isKind: component
+      #                    - hasAnnotation: jira/project-key
+      #- package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-scorecard-backend:bs_1.42.5__1.0.0!red-hat-developer-hub-backstage-plugin-scorecard-backend
+      #  disabled: false
 
       # Kuadrant Backend
       - package: "@kuadrant/kuadrant-backstage-plugin-backend-dynamic@v0.1.0"
