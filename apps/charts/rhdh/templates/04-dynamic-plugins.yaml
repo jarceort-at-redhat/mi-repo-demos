@@ -331,7 +331,7 @@ data:
 
       # Kuadrant Frontend
       - package: "@kuadrant/kuadrant-backstage-plugin-frontend@v0.1.0"
-        integrity: sha512-v1AgCXqouFlpINPWUnNDfuayO1krkRY5XJLPsne4mzBiKp5dDY993Zu+YdRVHsrrIbuNoRUcotWOZqjLwuLWuw==
+        integrity: sha512-3RLpjskJX4UqUQrc3gqg2TJL60cRKT+4mpnHH5OTi8leUxHgbyx2RnOmdRXivgXB1DwHK/oY7BsnPPft4Up2NQ==
         disabled: false
         pluginConfig:
           dynamicPlugins:
