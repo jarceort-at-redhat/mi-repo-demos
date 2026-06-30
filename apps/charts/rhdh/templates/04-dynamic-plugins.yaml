@@ -24,12 +24,12 @@ data:
         disabled: false
 
       # Kubernetes
-      #- package: ./dynamic-plugins/dist/backstage-plugin-kubernetes-backend-dynamic
-      #  disabled: false
-      #- package: ./dynamic-plugins/dist/backstage-plugin-kubernetes
-      #  disabled: false
-      #- package: ./dynamic-plugins/dist/backstage-community-plugin-topology
-      #  disabled: false
+      - package: ./dynamic-plugins/dist/backstage-plugin-kubernetes-backend-dynamic
+        disabled: false
+      - package: ./dynamic-plugins/dist/backstage-plugin-kubernetes
+        disabled: false
+      - package: ./dynamic-plugins/dist/backstage-community-plugin-topology
+        disabled: false
 
       # Tekton
       #- package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-tekton:bs_1.45.3__3.33.3

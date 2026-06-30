@@ -10,3 +10,6 @@ keycloak:
   realmName: backstage
   clientId: backstage
   secret: hj6tBlXDh4jvSDIHEXmZFQpgJAW4dMZw
+
+kubernetes:
+  apiUrl: https://kubernetes.default.svc:443

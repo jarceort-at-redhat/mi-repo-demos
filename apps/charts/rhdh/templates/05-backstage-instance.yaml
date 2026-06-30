@@ -23,6 +23,7 @@ spec:
           value: "0"
       secrets:
         - name: rhdh-secrets
+        - name: kubernetes-sa-token
     replicas: 1
     route:
       enabled: true

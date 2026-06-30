@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: my-k8-sa
+  namespace: rhdh
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: kubernetes-sa-token
+  namespace: rhdh
+  annotations:
+    kubernetes.io/service-account.name: my-k8-sa
+    argocd.argoproj.io/sync-wave: "1"
+type: kubernetes.io/service-account-token
