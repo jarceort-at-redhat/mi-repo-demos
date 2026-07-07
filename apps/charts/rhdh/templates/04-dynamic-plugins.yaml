@@ -333,13 +333,13 @@ data:
       #  disabled: false
 
       # Kuadrant Backend
-      - package: "@kuadrant/kuadrant-backstage-plugin-backend-dynamic@v0.1.0"
-        integrity: sha512-+iz5a/38ZB/phehlHMcbM79S/bMZwslcxi+lnG5Tb2InlWtumloFK7OzZk11s0/CjJPytF3CipOz4QpFHQ09qw==
+      - package: "@kuadrant/kuadrant-backstage-plugin-backend-dynamic@{{ "{{" }} .Values.kuadrant.pluginVersion {{ "}}" }}"
+        integrity: sha512-pttQ6Lp7wD6EqDXAC3AIm4FWuQYO0i1KwoR0k6opTTyRZOGaNyO3YmPQdF403n+WjfTZRE+dfccD/9R4/SO5iA==
         disabled: false
 
       # Kuadrant Frontend
-      - package: "@kuadrant/kuadrant-backstage-plugin-frontend@v0.1.0"
-        integrity: sha512-3RLpjskJX4UqUQrc3gqg2TJL60cRKT+4mpnHH5OTi8leUxHgbyx2RnOmdRXivgXB1DwHK/oY7BsnPPft4Up2NQ==
+      - package: "@kuadrant/kuadrant-backstage-plugin-frontend@{{ "{{" }} .Values.kuadrant.pluginVersion {{ "}}" }}"
+        integrity: sha512-E4zgwY3QQmA2mn0CwO2Zwc0k9/oCtHcsVHRcrKal2PfnXv6chKb9fCKi5SznH9FbNtx8fHVYnac9SQjFh5XGCA==
         disabled: false
         pluginConfig:
           dynamicPlugins:

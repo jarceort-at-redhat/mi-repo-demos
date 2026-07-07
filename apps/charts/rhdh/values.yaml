@@ -13,3 +13,6 @@ keycloak:
 
 kubernetes:
   apiUrl: https://api.cluster-l72lt.dynamic2.redhatworkshops.io:6443
+
+kuadrant:
+  pluginVersion: v0.2.1
