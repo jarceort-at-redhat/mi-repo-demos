@@ -1,0 +1,6 @@
+apiVersion: v2
+name: api-policies-component
+description: Helm Chart para desplegar Politicas de API
+type: application
+version: 1.0.0
+appVersion: "1.0.0"

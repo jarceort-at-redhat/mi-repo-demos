@@ -1,5 +1,5 @@
 apiVersion: v2
-name: kuadrant-component
+name: api-sample-component
 description: Helm Chart para desplegar API Sample
 type: application
 version: 1.0.0
