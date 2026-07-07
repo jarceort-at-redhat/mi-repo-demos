@@ -404,7 +404,7 @@ data:
                       if:
                         allOf:
                           - isKind: api
-                  - mountPoint: entity.page.api/cards
+                  - mountPoint: entity.page.api-product-info/cards
                     importName: EntityKuadrantApiProductInfoContent
                     config:
                       layout:

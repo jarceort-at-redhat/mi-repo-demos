@@ -38,5 +38,4 @@ spec:
       spec:
         template:
           spec:
-            serviceAccountName: rhdh-kuadrant
             automountServiceAccountToken: true
