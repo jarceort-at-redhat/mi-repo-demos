@@ -42,4 +42,4 @@ rules:
   - apiGroups: [""]
     resources:
       - secrets
-    verbs: ["get", "create", "delete"]
+    verbs: ["get", "list", "watch", "create", "update", "delete"]
