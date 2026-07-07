@@ -1,0 +1,23 @@
+apiVersion: kuadrant.io/v1
+kind: AuthPolicy
+metadata:
+  name: {{ .Values.apiSample.name }}-auth
+  namespace: {{ .Values.apiSample.namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: HTTPRoute
+    name: {{ .Values.apiSample.name }}-route
+  rules:
+    authentication:
+      "api-key-users":
+        apiKey:
+          selector:
+            matchLabels:
+              app: {{ .Values.apiSample.name }}-api
+          allNamespaces: true
+        credentials:
+          authorizationHeader:
+            prefix: APIKEY
