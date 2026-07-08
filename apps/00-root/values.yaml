@@ -18,3 +18,6 @@ gateway:
 
 rhdh:
   namespace: rhdh
+
+tempo:
+  namespace: tempo

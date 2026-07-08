@@ -1,0 +1,39 @@
+apiVersion: tempo.grafana.com/v1alpha1
+kind: TempoStack
+metadata:
+  name: tempostack
+  namespace: {{ .Values.tempo.namespace }}
+  labels:
+    app.kubernetes.io/part-of: connectivity-link-tutorial
+  annotations:
+    argocd.argoproj.io/sync-wave: "9"
+spec:
+  storageSize: 10Gi
+  storage:
+    secret:
+      name: tempo-bucket-secret
+      type: s3
+    tls:
+      enabled: true
+      caName: openshift-service-ca.crt
+  tenants:
+    mode: openshift
+    authentication:
+      - tenantName: dev
+        tenantId: "1610b0c3-c509-4592-a256-a1871353dbfa"
+  template:
+    gateway:
+      enabled: true
+      ingress:
+        type: route
+    queryFrontend:
+      jaegerQuery:
+        enabled: false
+  resources:
+    total:
+      limits:
+        memory: 2Gi
+        cpu: 2000m
+  retention:
+    global:
+      traces: 48h

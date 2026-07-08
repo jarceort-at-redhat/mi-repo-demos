@@ -1,0 +1,61 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: tempostack-traces-reader
+  annotations:
+    argocd.argoproj.io/sync-wave: "9"
+rules:
+  - apiGroups:
+      - tempo.grafana.com
+    resources:
+      - dev
+    resourceNames:
+      - traces
+    verbs:
+      - get
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: tempostack-traces-reader
+  annotations:
+    argocd.argoproj.io/sync-wave: "9"
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: tempostack-traces-reader
+subjects:
+  - kind: Group
+    apiGroup: rbac.authorization.k8s.io
+    name: system:authenticated
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: tempostack-traces-writer
+  annotations:
+    argocd.argoproj.io/sync-wave: "9"
+rules:
+  - apiGroups:
+      - tempo.grafana.com
+    resources:
+      - dev
+    resourceNames:
+      - traces
+    verbs:
+      - create
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: tempostack-traces-writer
+  annotations:
+    argocd.argoproj.io/sync-wave: "9"
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: tempostack-traces-writer
+subjects:
+  - kind: ServiceAccount
+    name: otel-collector
+    namespace: tempo

@@ -1,0 +1,12 @@
+apiVersion: objectbucket.io/v1alpha1
+kind: ObjectBucketClaim
+metadata:
+  name: {{ .Values.tempo.name }}-bucket
+  namespace: {{ .Values.tempo.namespace }}
+  labels:
+    app.kubernetes.io/part-of: connectivity-link-tutorial
+  annotations:
+    argocd.argoproj.io/sync-wave: "8"
+spec:
+  generateBucketName: {{ .Values.tempo.name }}-bucket
+  storageClassName: openshift-storage.noobaa.io
