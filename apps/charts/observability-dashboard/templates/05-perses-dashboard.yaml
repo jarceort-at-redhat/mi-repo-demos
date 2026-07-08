@@ -5,7 +5,6 @@ metadata:
   namespace: {{ .Values.kuadrant.namespace }}
   annotations:
     perses.dev/tags: "connectivity-link,kuadrant,gateway-api"
-    argocd.argoproj.io/sync-wave: "9"
 spec:
   config:
     display:
