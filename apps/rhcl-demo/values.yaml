@@ -1,4 +1,4 @@
-repoURL: 'https://github.com/mikeintoch/mi-repo-demos.git'
+repoURL: 'https://github.com/jarceort-at-redhat/mi-repo-demos'
 targetRevision: HEAD
 
 gitops:
