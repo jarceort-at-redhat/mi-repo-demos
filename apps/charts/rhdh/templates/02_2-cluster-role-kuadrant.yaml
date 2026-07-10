@@ -9,6 +9,7 @@ roleRef:
   kind: ClusterRole
   name: rhdh-kuadrant
 subjects:
+
   - kind: ServiceAccount
     name: default
     namespace: {{ .Values.rhdh.namespace }}
