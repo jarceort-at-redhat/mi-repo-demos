@@ -1277,8 +1277,8 @@ items:
           protocolMapper: oidc-audience-mapper
         publicClient: true
         redirectUris:
-        - https://server-trusted-profile-analyzer.apps.cluster-77r8r.dynamic2.redhatworkshops.io
-        - https://server-trusted-profile-analyzer.apps.cluster-77r8r.dynamic2.redhatworkshops.io/*
+        - https://server-trusted-profile-analyzer.apps.cluster-62rsw.dynamic2.redhatworkshops.io
+        - https://server-trusted-profile-analyzer.apps.cluster-62rsw.dynamic2.redhatworkshops.io
         rootUrl: ""
         serviceAccountsEnabled: false
         standardFlowEnabled: true

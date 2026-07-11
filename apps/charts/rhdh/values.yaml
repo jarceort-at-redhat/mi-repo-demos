@@ -2,7 +2,7 @@ rhdh:
   namespace: rhdh
   name: rhdh
 
-clusterDomain: apps.cluster-fkw98.dynamic2.redhatworkshops.io
+clusterDomain: apps.cluster-62rsw.dynamic2.redhatworkshops.io
 keycloak:
   name: keycloak
   namespace: keycloak
