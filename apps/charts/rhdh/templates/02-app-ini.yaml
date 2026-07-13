@@ -15,7 +15,7 @@ data:
         policyFileReload: true
         admin:
           users:
-            - name: user:default/rhdh-admin
+            - name: user:default/rdhd-admin
             
     app:
       title: Portal de Desarrolladores - RHCL Demo
