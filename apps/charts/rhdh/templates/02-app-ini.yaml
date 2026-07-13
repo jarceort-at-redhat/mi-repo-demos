@@ -13,6 +13,9 @@ data:
       rbac:
         policies-csv-file: /opt/app-root/etc/rbac-policy.csv
         policyFileReload: true
+        admin:
+          users:
+            - name: user:default/rhdh-admin
             
     app:
       title: Portal de Desarrolladores - RHCL Demo
