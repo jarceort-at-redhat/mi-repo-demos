@@ -53,6 +53,10 @@ data:
           target: https://raw.githubusercontent.com/RHDH-PoC-MX/camel-service/refs/heads/main/catalog-info.yaml
           rules:
             - allow: [Component, API, Location, Template, Domain, User, Group, System, Resource, Plugin, Package]
+        - type: url
+          target: https://raw.githubusercontent.com/RHDH-PoC-MX/rhdh-templates/refs/heads/main/catalog-info.yaml
+          rules:
+            - allow: [Component, API, Location, Template, Domain, User, Group, System, Resource, Plugin, Package]
       rules:
         - allow: [Component, API, APIProduct, Location, Template, Domain, User, Group, System, Resource, Plugin, Package]
       providers:
