@@ -29,6 +29,7 @@ data:
         allow:
           - host: 'github.com'
           - host: 'raw.githubusercontent.com'
+          - host: 'apicurio-registry.apps.cluster-62rsw.dynamic2.redhatworkshops.io'
 
     signInPage: oidc
     auth:
