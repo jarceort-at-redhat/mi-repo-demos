@@ -43,6 +43,9 @@ data:
                 - resolver: preferredUsernameMatchingUserEntityName
     
     catalog:
+      locations:
+        - type: url
+          target: https://raw.githubusercontent.com/RHDH-PoC-MX/camel-service/refs/heads/main/catalog-info.yaml
       rules:
         - allow: [Component, API, APIProduct, Location, Template, Domain, User, Group, System, Resource, Plugin, Package]
       providers:
